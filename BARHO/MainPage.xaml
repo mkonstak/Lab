@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LabApp.MainPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#121212" Offset="0.1" />
+            <GradientStop Color="#1a1a1a" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <VerticalStackLayout
+        Padding="30,50"
+        Spacing="20"
+        VerticalOptions="Fill">
+        
+        <Label
+            Text="BARHO"
+            FontSize="32"
+            FontAttributes="Bold"
+            TextColor="#08a8b6"
+            HorizontalOptions="Center"
+            Margin="0,0,0,20" />
+
+        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+            <Label Text="Zadejte X:" VerticalOptions="Center" FontSize="18" TextColor="White" />
+            <Entry x:Name="inputX" Text="0," Grid.Column="1" Placeholder="0,0000" Keyboard="Numeric" FontSize="18" TextColor="White" PlaceholderColor="#666" BackgroundColor="#222" Completed="OnInputXCompleted" />
+
+            <Label Text="Zadejte Y:" Grid.Row="1" VerticalOptions="Center" FontSize="18" TextColor="White" />
+            <Entry x:Name="inputY" Text="0," Grid.Row="1" Grid.Column="1" Placeholder="0,0000" Keyboard="Numeric" FontSize="18" TextColor="White" PlaceholderColor="#666" BackgroundColor="#222" Completed="OnInputYCompleted" />
+        </Grid>
+
+        <Frame x:Name="resultsFrame" BackgroundColor="#1E1E1E" BorderColor="#333" CornerRadius="12" Padding="20" Opacity="0">
+            <VerticalStackLayout Spacing="15">
+                <HorizontalStackLayout Spacing="20">
+                    <Label Text="Odstín:" FontAttributes="Bold" FontSize="22" TextColor="#08a8b6" VerticalOptions="Center" WidthRequest="100" />
+                    <Entry x:Name="txtOdstinResult" IsReadOnly="True" FontSize="22" TextColor="White" BackgroundColor="Transparent" />
+                </HorizontalStackLayout>
+                
+                <HorizontalStackLayout Spacing="20">
+                    <Label Text="Sytost:" FontAttributes="Bold" FontSize="22" TextColor="#08a8b6" VerticalOptions="Center" WidthRequest="100" />
+                    <Entry x:Name="txtSytostResult" IsReadOnly="True" FontSize="22" TextColor="White" BackgroundColor="Transparent" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button
+            x:Name="btnNextSample"
+            Text="DALŠÍ VZOREK?"
+            IsVisible="False"
+            Opacity="0"
+            Clicked="OnNextSampleClicked"
+            BackgroundColor="#08a8b6"
+            TextColor="White"
+            FontSize="22"
+            FontAttributes="Bold"
+            HeightRequest="65"
+            CornerRadius="12"
+            Margin="0,15" />
+        
+    </VerticalStackLayout>
+
+</ContentPage>
